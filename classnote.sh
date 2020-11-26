@@ -1,8 +1,8 @@
 Project-202: Docker Swarm Deployment of Phonebook Application (Python Flask) with
 
-Part-2 
+Part-3
 
-Date: 25/11/2020
+Date: 26/11/2020
 
 Instructor: Serdar
 
@@ -21,3 +21,10 @@ Instructor: Serdar
 - Application Deployement
     - Dockerfile
     - docker-compose.yml (Web server and Mysql)
+
+Jenkins Server should be capable of
+    - creating ECR Repository
+    - building docker image
+    - pushing Docker Imageto ECR Repository
+    - creating infrastructure for Athe Application
+    - Deploying the Application
