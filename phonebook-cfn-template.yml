@@ -224,7 +224,7 @@ Resources:
   DockerManager3:
     Type: "AWS::EC2::Instance"
     DependsOn:
-      - DockerManager2
+      - DockerManager1
     Properties:
       LaunchTemplate:
         LaunchTemplateId: !Ref ManagersLT
@@ -237,7 +237,7 @@ Resources:
   DockerWorker1:
     Type: "AWS::EC2::Instance"
     DependsOn:
-      - DockerManager3
+      - DockerManager2
     Properties:
       LaunchTemplate:
         LaunchTemplateId: !Ref WorkersLT
@@ -250,7 +250,7 @@ Resources:
   DockerWorker2:
     Type: "AWS::EC2::Instance"
     DependsOn:
-      - DockerWorker1
+      - DockerManager2
     Properties:
       LaunchTemplate:
         LaunchTemplateId: !Ref WorkersLT
@@ -277,8 +277,8 @@ Outputs:
     Value: !Sub 
       - ${PublicAddress}
       - PublicAddress: !GetAtt DockerManager2.PublicDnsName
-  3thManagerDNSName:
-    Description: 3th Docker Manager DNS Name
+  3rdManagerDNSName:
+    Description: 3rd Docker Manager DNS Name
     Value: !Sub 
       - ${PublicAddress}
       - PublicAddress: !GetAtt DockerManager3.PublicDnsName
