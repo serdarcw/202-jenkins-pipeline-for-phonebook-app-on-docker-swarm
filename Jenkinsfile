@@ -19,7 +19,6 @@ pipeline {
             steps {
                 echo 'Creating ECR Repo for App'
                 sh """
-                aws ecr describe-repositories --repository-names ${APP_REPO_NAME} || \
                 aws ecr create-repository \
                   --repository-name ${APP_REPO_NAME} \
                   --image-scanning-configuration scanOnPush=false \
