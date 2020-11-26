@@ -18,6 +18,7 @@ pipeline {
         stage('creating ECR Repository') {
             steps {
                 echo 'creating ECR Repository'
+                sh 'echo ${GIT_URL}'
             }
         }
         stage('building Docker Image') {
